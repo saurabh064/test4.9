@@ -1,0 +1,112 @@
+form: FLATFILE
+structures:
+  - id: Batch
+    name: Main with Trailer
+    data:
+      - { idRef: BakaraGroup, usage: "M", count: 1 }
+      - groupId: 'Batch'
+        count: '>1'
+        items:
+        - { idRef: 'KoteretGroup', usage: "O", count: 1 }
+        - { idRef: 'HovaGroup', usage: "O", count: 1 }
+        - { idRef: 'ZhutGroup', usage: "O", count: 1 } 
+
+segments:
+  - id: BakaraGroup
+    name: Bakara Record
+    values:
+      - { name: recordType, type: String, length: 2, tagValue: "00" }
+      - { name: companyCode, type: String, length: 4 }
+      - { name: curentYear, type: String, length: 4 }
+      - { name: curentMonth, type: String, length: 2 }
+      - { name: reportimgDate, type: String, length: 8 }
+      - { name: registrationDate, type: String, length: 8 }
+      - { name: serviceNumber, type: String, length: 16 }
+      - { name: totalKoteretRecords, type: String, length: 7 }
+      - { name: totalTransactionRecords, type: String, length: 7 }
+      - { name: sumHova, type: String, length: 18 }
+      - { name: sumZhut, type: String, length: 18 }
+  - id: KoteretGroup
+    name: Koteret Record
+    values:
+      - { name: recordType, type: String, length: 2, tagValue: "02" }
+      - { name: systemNameSending, type: String, length: 25 }
+      - { name: commandNumber, type: String, length: 20 }
+      - { name: koteretReference, type: String, length: 16 }
+      - { name: sapCompanyCode, type: String, length: 4 }
+      - { name: curentYear, type: String, length: 4 }
+      - { name: documentDate, type: String, length: 8 }
+      - { name: registrationDate, type: String, length: 8 }
+      - { name: documentReceiveDate, type: String, length: 8 }
+      - { name: accountingPeriod, type: String, length: 6 }
+      - { name: totalRows, type: String, length: 3 }
+      - { name: amountHovaToPay, type: String, length: 18 }
+      - { name: amountZhutToPay, type: String, length: 18 }
+      - { name: koteretText, type: String, length: 25 }
+      - { name: referenceKey2, type: String, length: 20 }
+  - id: HovaGroup
+    name: Hova Record
+    values:
+      - { name: recordType, type: String, length: 2 }
+      - { name: CommandNumber, type: String, length: 20 }
+      - { name: MerkavaRegistrationKeyAccountNumber, type: String, length: 10 }
+      - { name: ZacaiNumber, type: String, length: 10 }
+      - { name: MerkavaRegistrationKeyGLNumber, type: String, length: 10 }
+      - { name: BusinessType, type: String, length: 4 }
+      - { name: BaseDate, type: String, length: 8 }
+      - { name: MerkavaRegistrationKey, type: String, length: 2 }
+      - { name: currency, type: String, length: 5 }
+      - { name: AmountToPay, type: String, length: 15, tagValue: "-" }
+      - { name: PaymentMethod, type: String, length: 1 }
+      - { name: BankAllocationCode, type: String, length: 4 }
+      - { name: PaymentTerms, type: String, length: 4 }
+      - { name: Bank, type: String, length: 5 }
+      - { name: MaamCode, type: String, length: 2 }
+      - { name: AllocationNumber, type: String, length: 18 }
+      - { name: PaymentName, type: String, length: 50 }
+      - { name: MerkazAlut, type: String, length: 10 }
+      - { name: InternalOrder, type: String, length: 12 }
+      - { name: WbsObject, type: String, length: 24 }
+      - { name: ParitHithayvut, type: String, length: 8 }
+      - { name: FoundsCenter, type: String, length: 16 }
+      - { name: KerenMeyuedet, type: String, length: 10 }
+      - { name: FoundRowNumber, type: String, length: 3 }
+      - { name: DunningKey, type: String, length: 1 }
+      - { name: ReminderBlock, type: String, length: 1 }
+      - { name: ReasonCode, type: String, length: 3 }
+      - { name: Filler, type: String, length: 221 }
+      - { name: ReferenceKey2, type: String, length: 12 }
+      - { name: ReferenceKey3, type: String, length: 20 }
+  - id: ZhutGroup
+    name: Zhut Record
+    values:
+      - { name: recordType, type: String, length: 2 }
+      - { name: CommandNumber, type: String, length: 20 }
+      - { name: MerkavaRegistrationKeyAccountNumber, type: String, length: 10 }
+      - { name: ZacaiNumber, type: String, length: 10 }
+      - { name: MerkavaRegistrationKeyGLNumber, type: String, length: 10 }
+      - { name: BusinessType, type: String, length: 4 }
+      - { name: BaseDate, type: String, length: 8 }
+      - { name: MerkavaRegistrationKey, type: String, length: 2 }
+      - { name: currency, type: String, length: 5 }
+      - { name: AmountToPay, type: String, length: 15, tagValue: "0" }
+      - { name: PaymentMethod, type: String, length: 1 }
+      - { name: BankAllocationCode, type: String, length: 4 }
+      - { name: PaymentTerms, type: String, length: 4 }
+      - { name: Bank, type: String, length: 5 }
+      - { name: MaamCode, type: String, length: 2 }
+      - { name: AllocationNumber, type: String, length: 18 }
+      - { name: PaymentName, type: String, length: 50 }
+      - { name: MerkazAlut, type: String, length: 10 }
+      - { name: InternalOrder, type: String, length: 12 }
+      - { name: WbsObject, type: String, length: 24 }
+      - { name: ParitHithayvut, type: String, length: 8 }
+      - { name: FoundsCenter, type: String, length: 16 }
+      - { name: KerenMeyuedet, type: String, length: 10 }
+      - { name: FoundRowNumber, type: String, length: 3 }
+      - { name: DunningKey, type: String, length: 1 }
+      - { name: ReminderBlock, type: String, length: 1 }
+      - { name: ReasonCode, type: String, length: 3 }
+      - { name: Filler, type: String, length: 221 }
+      - { name: ReferenceKey2, type: String, length: 12 }
+      - { name: ReferenceKey3, type: String, length: 20 }
